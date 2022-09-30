@@ -12,6 +12,7 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
+	"github.com/icza/backscanner"
 
 	"github.com/TrueBlocks/trueblocks-core/src/apps/chifra/pkg/utils"
 )

@@ -33,7 +33,8 @@ func ScanProgressLine(data []byte, atEOF bool) (advance int, token []byte, err e
 
 // ScanForProgress watches stderr and picks of progress messages
 func ScanForProgress(stderrPipe io.Reader, fn func(string)) {
-	scanner := bufio.NewScanner(stderrPipe)
+	// scanner := bufio.NewScanner(stderrPipe)
+	scanner := backscanner.New(strings.NewReader(stderrPipe), len(stderrPipe))
 	buf := make([]byte, 1024*1024)
 	scanner.Buffer(buf, 1024*1024)
 	scanner.Split(ScanProgressLine)
